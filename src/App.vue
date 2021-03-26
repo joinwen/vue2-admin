@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2>Vue 2 Admin</h2>
+    <el-tag>vue 2 admin</el-tag>
     <router-view />
   </div>
 </template>
