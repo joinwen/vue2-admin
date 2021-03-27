@@ -1,5 +1,7 @@
 import Vue from "vue";
 import {
+  Avatar,
+  Scrollbar,
   Pagination,
   Dialog,
   Autocomplete,
@@ -78,7 +80,8 @@ import {
   Message,
   Notification,
 } from "element-ui";
-
+Vue.use(Avatar);
+Vue.use(Scrollbar);
 Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.use(Autocomplete);
