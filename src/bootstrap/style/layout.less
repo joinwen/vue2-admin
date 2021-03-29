@@ -1,0 +1,128 @@
+@import "color";
+// el-menu 防卡
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 256px;
+  height: calc(100% - 64px);
+}
+
+// el-menu 折叠隐藏文字和^箭头
+.el-menu--collapse {
+  .Menu {
+    .el-submenu__icon-arrow,
+    .el-submenu__title span
+    {
+      display: none;
+    }
+  }
+}
+
+// 二级、三级等菜单背景色 和 hover: 背景色, color色, icon色
+.el-menu-item {
+  background-color: #000c17 !important;
+  &:hover {
+    color: #fff !important;
+    background-color: #000c17 !important;
+    i{
+      color: #fff !important;
+    }
+  }
+}
+
+// 二级、三级等菜单背景色 和 hover: 背景色, color色, icon色
+.el-submenu__title {
+  background-color: #000c17 !important;
+  &:hover {
+    color: #fff !important;
+    background-color: #000c17 !important;
+    i {
+      color: #fff !important;
+    }
+  }
+}
+
+// 一级菜单背景色 和 hover: 背景色, color色, icon色
+.el-scrollbar__view {
+  .el-menu {
+    .el-submenu {
+      .el-submenu__title {
+        background-color: #001529 !important;
+        &:hover {
+          background-color: #001529 !important;
+        }
+      }
+    }
+  }
+}
+
+// 菜单激活色
+.el-menu-item.is-active {
+  background-color: #409eff !important;
+}
+
+.basic-layout {
+  height: 100%;
+
+  section {
+    min-height: 100%;
+    display: flex;
+
+    .aside-shrink {
+      width: 65px;
+    }
+    .aside-full {
+      width: 256px;
+    }
+    .aside {
+      flex: 0 0 auto;
+    }
+    aside {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      background-color: #001529;
+    }
+    section {
+      flex: auto;
+      display: flex;
+      flex-direction: column;
+
+      .header {
+        height: 64px;
+        flex: 0 0 auto;
+      }
+      .header-shrink {
+        width: calc(100% - 256px);
+      }
+      .header-full {
+        width: calc(100% - 65px);
+      }
+      header {
+        height: 64px;
+        position: fixed;
+        top: 0px;
+
+        .hamburger {
+          float: left;
+        }
+
+        .notice {
+          float: right;
+        }
+
+        .user-pane {
+          float: right;
+        }
+      }
+
+      main {
+        flex: auto;
+      }
+
+      footer {
+        height: 64px;
+        flex: 0 0 auto;
+        background-color: cornsilk;
+      }
+    }
+  }
+}

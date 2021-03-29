@@ -18,6 +18,7 @@ const constantRoutes = [
         redirect: "/sys/user",
         meta: {
           title: "系统管理",
+          icon: "el-icon-menu",
         },
         children: [
           {
@@ -42,6 +43,37 @@ const constantRoutes = [
             component: () => import("@/views/sys/permission/SysPermission"),
             meta: {
               title: "权限管理",
+            },
+          },
+        ],
+      },
+      {
+        path: "/table",
+        name: "Table",
+        component: RouteView,
+        redirect: "/table/condition",
+        meta: {
+          title: "表单",
+          icon: "el-icon-menu",
+        },
+        children: [
+          {
+            path: "/table/condition",
+            name: "TableCondition",
+            component: () =>
+              import("@/views/table/table-condition/TableCondition"),
+            meta: {
+              title: "条件表单",
+              icon: "el-icon-setting",
+            },
+          },
+          {
+            path: "/table/list",
+            name: "TableList",
+            component: () => import("@/views/table/table-list/TableList"),
+            meta: {
+              title: "表格列表",
+              icon: "el-icon-setting",
             },
           },
         ],
