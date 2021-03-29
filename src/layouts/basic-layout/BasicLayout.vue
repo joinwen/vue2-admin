@@ -1,8 +1,15 @@
 <template>
   <div class="basic-layout">
     <section>
-      <div :class="['aside', sideBar ? 'aside-full' : 'aside-shrink']"></div>
-      <aside :class="[sideBar ? 'aside-full' : 'aside-shrink']">
+      <div
+        :class="[
+          'aside ease-in-out-0.5',
+          sideBar ? 'aside-full' : 'aside-shrink',
+        ]"
+      ></div>
+      <aside
+        :class="['ease-in-out-0.5', sideBar ? 'aside-full' : 'aside-shrink']"
+      >
         <brand-logo />
         <el-scrollbar x-hidden style="height: calc(100% - 64px)">
           <el-menu
@@ -11,7 +18,7 @@
             background-color="#001529"
             text-color="#a6aaae"
             active-text-color="#fff"
-            :default-openeds="['1', '3']"
+            :default-openeds="[]"
           >
             <el-submenu index="1">
               <template slot="title"
@@ -63,7 +70,10 @@
       <section class="bg-info-100">
         <div class="header"></div>
         <header
-          :class="['bg-white', sideBar ? 'header-shrink' : 'header-full']"
+          :class="[
+            'bg-white shadow-basic ease-in-out-0.5',
+            sideBar ? 'header-shrink' : 'header-full',
+          ]"
         >
           <div class="hamburger ease-out-1/60 hover:gray-100">
             <hamburger
@@ -116,8 +126,13 @@ export default {
 };
 </script>
 <style lang="less">
+.el-menu {
+  border-right: none !important;
+}
+
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 256px;
+  height: calc(100% - 64px);
 }
 
 .el-menu-item {
@@ -160,7 +175,6 @@ export default {
 
       .header {
         height: 64px;
-        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
         flex: 0 0 auto;
       }
       .header-shrink {
