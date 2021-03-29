@@ -19,6 +19,7 @@
             text-color="#a6aaae"
             active-text-color="#fff"
             :default-openeds="[]"
+            :unique-opened="true"
           >
             <el-submenu index="1">
               <template slot="title"
@@ -84,7 +85,7 @@
               i-w="20"
             />
           </div>
-          <div class="user-pane ease-out-1/60 hover:gray-100">
+          <div class="user-pane ease-out-1/60 hover:gray-100 m-r-1">
             <user-pane />
           </div>
           <div class="notice ease-out-1/60 hover:gray-100">
@@ -138,12 +139,17 @@ export default {
 .el-menu-item {
   background-color: #000c17 !important;
 }
+
 .el-submenu__title:hover {
   background-color: #001529 !important;
 }
 
 .el-menu-item:hover {
   background-color: #000c17 !important;
+}
+
+.el-menu-item.is-active {
+  background-color: #409eff !important;
 }
 
 .basic-layout {
