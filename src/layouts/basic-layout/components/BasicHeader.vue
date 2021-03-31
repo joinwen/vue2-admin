@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="[isMobile && 'header-mobile']">
     <div class="header"></div>
     <header
       :class="[
@@ -34,7 +34,7 @@ export default {
   name: "BasicHeader",
   components: { Hamburger, UserPane, NoticeBell },
   computed: {
-    ...mapGetters(["sideBar"]),
+    ...mapGetters(["sideBar", "isMobile"]),
   },
   data() {
     return {};

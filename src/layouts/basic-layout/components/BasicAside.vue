@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="[isMobile && (sideBar ? 'aside-mobile' : 'aside-hide-mobile')]">
     <div
       :class="[
         'aside ease-in-out-0.5',
@@ -27,6 +27,10 @@
         </el-menu>
       </el-scrollbar>
     </aside>
+    <div
+      :class="[isMobile && sideBar && 'mask-mobile']"
+      @click="handleClickMask"
+    ></div>
   </div>
 </template>
 <script>
@@ -37,12 +41,16 @@ export default {
   name: "BasicAside",
   components: { BrandLogo, Menu },
   computed: {
-    ...mapGetters(["sideBar", "routes"]),
+    ...mapGetters(["sideBar", "routes", "isMobile"]),
   },
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    handleClickMask() {
+      this.$store.commit("SET_SIDE_BAR", false);
+    },
+  },
 };
 </script>
 <style lang="less" scoped></style>

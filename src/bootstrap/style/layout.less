@@ -66,6 +66,23 @@
     min-height: 100%;
     display: flex;
 
+    .aside-mobile {
+      position: fixed;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .aside-hide-mobile {
+      display: none;
+    }
+    .mask-mobile {
+      position: fixed;
+      background-color: rgba(0,0,0,.6);
+      top: 0px;
+      bottom: 0px;
+      left: 256px;
+      right: 0px;
+    }
     .aside-shrink {
       width: 65px;
     }
@@ -86,6 +103,10 @@
       display: flex;
       flex-direction: column;
 
+      .header-mobile header {
+        width: 100% !important;
+        transition: all 0s linear;
+      }
       .header {
         height: 64px;
         flex: 0 0 auto;
