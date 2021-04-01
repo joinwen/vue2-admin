@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     handleToggleHamburger(val) {
-      console.log(val);
       this.$store.commit("SET_SIDE_BAR", val);
     },
   },

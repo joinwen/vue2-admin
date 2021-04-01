@@ -5,7 +5,7 @@
     :style="{ width: oW, height: oH }"
   >
     <svg
-      :class="{ 'is-active': active }"
+      :class="{ 'is-active': sideBar }"
       class="hamburger"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +28,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Hamburger",
   props: {
@@ -48,6 +49,9 @@ export default {
       default: "64",
     },
   },
+  computed: {
+    ...mapGetters(["sideBar"]),
+  },
   data() {
     return {
       active: true,
@@ -55,8 +59,8 @@ export default {
   },
   methods: {
     toggleClick() {
-      this.active = !this.active;
-      this.$emit("toggleClick", this.active);
+      let value = this.sideBar;
+      this.$emit("toggleClick", !value);
     },
   },
 };

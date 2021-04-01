@@ -16,6 +16,7 @@ const app = {
       state.size = value;
       if (value == "xs") {
         state.isMobile = true;
+        state.sideBar = false;
       } else {
         state.isMobile = false;
       }
