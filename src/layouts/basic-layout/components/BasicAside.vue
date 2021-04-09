@@ -1,10 +1,18 @@
 <template>
-  <div :class="[isMobile && (sideBar ? 'aside-mobile' : 'aside-hide-mobile')]">
+  <div
+    :class="[
+      'basic-aside',
+      sFixed && 'aside-fixed',
+      isMobile && (sideBar ? 'aside-mobile' : 'aside-mobile-hidden'),
+    ]"
+  >
     <div
-      :class="[
-        'aside ease-in-out-0.5',
-        sideBar ? 'aside-full' : 'aside-shrink',
-      ]"
+      :class="[isMobile && sideBar && 'mask-mobile']"
+      @click="handleClickMask"
+    ></div>
+    <div
+      class="pseudo-aside ease-in-out-0.5"
+      :class="[sideBar ? 'aside-full' : 'aside-shrink']"
     ></div>
     <aside
       :class="['ease-in-out-0.5', sideBar ? 'aside-full' : 'aside-shrink']"
@@ -13,9 +21,7 @@
       <el-scrollbar border-none x-hidden style="height: calc(100% - 64px)">
         <el-menu
           class="el-menu-vertical-demo"
-          :collapse="!sideBar"
-          text-color="#a6aaae"
-          active-text-color="#fff"
+          :collapse="collapsed"
           :default-active="$route.path"
           :unique-opened="false"
         >
@@ -27,10 +33,6 @@
         </el-menu>
       </el-scrollbar>
     </aside>
-    <div
-      :class="[isMobile && sideBar && 'mask-mobile']"
-      @click="handleClickMask"
-    ></div>
   </div>
 </template>
 <script>
@@ -41,7 +43,14 @@ export default {
   name: "BasicAside",
   components: { BrandLogo, Menu },
   computed: {
-    ...mapGetters(["sideBar", "routes", "isMobile"]),
+    ...mapGetters(["sideBar", "routes", "isMobile", "sFixed"]),
+    collapsed() {
+      if (this.isMobile) {
+        return false;
+      } else {
+        return !this.sideBar;
+      }
+    },
   },
   data() {
     return {};

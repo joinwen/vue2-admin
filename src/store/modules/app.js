@@ -2,6 +2,8 @@ const app = {
   state: {
     sideBar: true, // 常开 / 半开
     isMobile: false, // 移动端
+    sFixed: true, // sideBar fixed
+    tFixed: true, // top fixed
     size: "",
   },
   actions: {},
@@ -19,7 +21,14 @@ const app = {
         state.sideBar = false;
       } else {
         state.isMobile = false;
+        state.sideBar = true;
       }
+    },
+    SET_S_FIXED(state, value) {
+      state.sFixed = value;
+    },
+    SET_T_FIXED(state, value) {
+      state.tFixed = value;
     },
   },
 };

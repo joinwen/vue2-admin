@@ -1,4 +1,4 @@
-@import "color";
+@import "theme";
 // el-menu 防卡
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 256px;
@@ -9,8 +9,7 @@
 .el-menu--collapse {
   .Menu {
     .el-submenu__icon-arrow,
-    .el-submenu__title span
-    {
+    .el-submenu__title span {
       display: none;
     }
   }
@@ -18,24 +17,26 @@
 
 // 二级、三级等菜单背景色 和 hover: 背景色, color色, icon色
 .el-menu-item {
-  background-color: #000c17 !important;
+  background-color: @subMenuBg !important;
+  color: @menuColor !important;
   &:hover {
-    color: #fff !important;
-    background-color: #000c17 !important;
-    i{
-      color: #fff !important;
+    color: @menuColorActive !important;
+    background-color: @subMenuBg !important;
+    i {
+      color: @menuColorActive !important;
     }
   }
 }
 
 // 二级、三级等菜单背景色 和 hover: 背景色, color色, icon色
 .el-submenu__title {
-  background-color: #000c17 !important;
+  background-color: @subMenuBg !important;
+  color: @menuColor !important;
   &:hover {
-    color: #fff !important;
-    background-color: #000c17 !important;
+    color: @menuColorActive !important;
+    background-color: @subMenuBg !important;
     i {
-      color: #fff !important;
+      color: @menuColorActive !important;
     }
   }
 }
@@ -45,9 +46,9 @@
   .el-menu {
     .el-submenu {
       .el-submenu__title {
-        background-color: #001529 !important;
+        background-color: @subMenuBg !important;
         &:hover {
-          background-color: #001529 !important;
+          background-color: @subMenuBg !important;
         }
       }
     }
@@ -56,7 +57,16 @@
 
 // 菜单激活色
 .el-menu-item.is-active {
-  background-color: #409eff !important;
+  background-color: @subMenuBgActive !important;
+  color: @menuColorActive !important;
+}
+
+// 父级 菜单 激活色
+.el-submenu.is-active > .el-submenu__title {
+  color: @menuColorActive !important;
+  i {
+    color: @menuColorActive !important;
+  }
 }
 
 .basic-layout {
@@ -66,75 +76,125 @@
     min-height: 100%;
     display: flex;
 
-    .aside-mobile {
-      position: fixed;
-      height: 100%;
-      z-index: 2;
-    }
+    .basic-aside {
 
-    .aside-hide-mobile {
-      display: none;
+      .brand-logo {
+        background-color: @asideBg;
+        h1 {
+          color: @menuColorActive;
+        }
+      }
+      .pseudo-aside {
+        display: none;
+      }
+      aside {
+        height: 100%;
+        background-color: @asideBg;
+      }
+      .aside-shrink {
+        width: 65px;
+      }
+      .aside-full {
+        width: 256px;
+      }
     }
-    .mask-mobile {
-      position: fixed;
-      background-color: rgba(0,0,0,.45);
-      top: 0px;
-      bottom: 0px;
-      left: 256px;
-      right: 0px;
-    }
-    .aside-shrink {
-      width: 65px;
-    }
-    .aside-full {
-      width: 256px;
-    }
-    .aside {
-      flex: 0 0 auto;
-    }
-    aside {
+    .aside-mobile {
       position: fixed;
       top: 0;
       bottom: 0;
-      background-color: #001529;
+      z-index: 1;
+
+      .aside-shrink {
+        width: 256px;
+      }
+      .aside-full {
+        width: 256px;
+      }
     }
+    .aside-mobile-hidden {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-256px);
+      z-index: 1;
+
+      .aside-shrink {
+        width: 256px;
+      }
+      .aside-full {
+        width: 256px;
+      }
+    }
+    .aside-fixed {
+      .pseudo-aside {
+        display: block;
+      }
+      aside {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+      }
+    }
+    .mask-mobile {
+      position: fixed;
+      background-color: rgba(0, 0, 0, 0.45);
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+
     section {
       flex: auto;
       display: flex;
       flex-direction: column;
-
-      .header-mobile header {
-        width: 100% !important;
-        transition: all 0s linear;
-      }
-      .header {
-        height: 64px;
-        flex: 0 0 auto;
-      }
-      .header-shrink {
-        width: calc(100% - 256px);
-      }
-      .header-full {
-        width: calc(100% - 65px);
-      }
-      header {
-        height: 64px;
-        position: fixed;
-        top: 0px;
-
-        .hamburger {
-          float: left;
+      .basic-header {
+        .pseudo-header {
+          display: none;
         }
+        header {
+          height: 64px;
+          width: 100%;
 
-        .notice {
-          float: right;
-        }
+          .hamburger {
+            float: left;
+          }
 
-        .user-pane {
-          float: right;
+          .notice {
+            float: right;
+          }
+
+          .user-pane {
+            float: right;
+          }
         }
       }
+      .header-mobile {
+        header {
+          width: 100% !important;
+          transition: all 0s linear;
+        }
+      }
+      .header-fixed {
+        .pseudo-header {
+          display: block;
+          height: 64px;
+          flex: 0 0 auto;
+        }
 
+        header {
+          position: fixed;
+          top: 0;
+        }
+
+        .header-shrink {
+          width: calc(100% - 256px);
+        }
+
+        .header-full {
+          width: calc(100% - 65px);
+        }
+      }
       main {
         flex: auto;
       }
@@ -142,7 +202,6 @@
       footer {
         height: 64px;
         flex: 0 0 auto;
-        background-color: cornsilk;
       }
     }
   }

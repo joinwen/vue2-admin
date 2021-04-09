@@ -1,11 +1,15 @@
 <template>
-  <div :class="[isMobile && 'header-mobile']">
-    <div class="header"></div>
+  <div
+    :class="[
+      'basic-header',
+      tFixed && 'header-fixed',
+      isMobile && 'header-mobile',
+    ]"
+  >
+    <div class="pseudo-header"></div>
     <header
-      :class="[
-        'bg-white shadow-basic ease-in-out-0.5',
-        sideBar ? 'header-shrink' : 'header-full',
-      ]"
+      class="bg-white shadow-basic ease-in-out-0.5"
+      :class="[sideBar ? 'header-shrink' : 'header-full']"
     >
       <div class="hamburger ease-out-1/60 hover:gray-100">
         <hamburger
@@ -34,7 +38,7 @@ export default {
   name: "BasicHeader",
   components: { Hamburger, UserPane, NoticeBell },
   computed: {
-    ...mapGetters(["sideBar", "isMobile"]),
+    ...mapGetters(["sideBar", "isMobile", "tFixed"]),
   },
   data() {
     return {};

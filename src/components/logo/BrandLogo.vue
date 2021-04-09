@@ -23,7 +23,6 @@ export default {
 <style lang="less" scoped>
 .brand-logo {
   height: 64px;
-  background-color: #002140;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +41,6 @@ export default {
   h1 {
     font-size: 20px;
     margin: 0px 0px 0px 0.5rem;
-    color: #fff;
   }
 }
 </style>
