@@ -18,7 +18,7 @@ const constantRoutes = [
         redirect: "/sys/user",
         meta: {
           title: "系统管理",
-          icon: "el-icon-menu",
+          icon: "el-icon-setting",
         },
         children: [
           {
@@ -54,7 +54,7 @@ const constantRoutes = [
         redirect: "/table/condition",
         meta: {
           title: "表单",
-          icon: "el-icon-menu",
+          icon: "el-icon-s-order",
         },
         children: [
           {
@@ -77,6 +77,72 @@ const constantRoutes = [
             },
           },
         ],
+      },
+      {
+        path: "/visualization",
+        name: "Visualization",
+        component: RouteView,
+        redirect: "/visualization/echarts",
+        meta: {
+          title: "可视化",
+          icon: "el-icon-s-data",
+        },
+        children: [
+          {
+            path: "/visualization/echarts",
+            name: "EchartsDemo",
+            component: () =>
+              import("@/views/visualization/echarts/EchartsDemo"),
+            meta: {
+              title: "Echarts",
+            },
+          },
+          {
+            path: "/visualization/d3",
+            name: "D3Demo",
+            component: () => import("@/views/visualization/d3/D3Demo"),
+            meta: {
+              title: "D3",
+            },
+          },
+        ],
+      },
+      {
+        name: "Map",
+        path: "/map",
+        redirect: "/map/leaflet",
+        component: RouteView,
+        meta: {
+          title: "地图",
+          icon: "el-icon-location",
+        },
+        children: [
+          {
+            name: "LeafletDemo",
+            path: "/map/leaflet",
+            component: () => import("@/views/map/leaflet/LeafletDemo"),
+            meta: {
+              title: "Leaflet",
+            },
+          },
+          {
+            name: "MapboxDemo",
+            path: "/map/mapbox",
+            component: () => import("@/views/map/mapbox/MapboxDemo"),
+            meta: {
+              title: "Mapbox",
+            },
+          },
+        ],
+      },
+      {
+        name: "ImageGallery",
+        path: "/gallery",
+        component: () => import("@/views/gallery/ImageGallery"),
+        meta: {
+          title: "画廊",
+          icon: "el-icon-picture",
+        },
       },
     ],
   },

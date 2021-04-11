@@ -75,6 +75,7 @@ import {
   Backtop,
   PageHeader,
   CascaderPanel,
+  InfiniteScroll,
   Loading,
   MessageBox,
   Message,
@@ -155,6 +156,7 @@ Vue.use(Calendar);
 Vue.use(Backtop);
 Vue.use(PageHeader);
 Vue.use(CascaderPanel);
+Vue.use(InfiniteScroll);
 
 Vue.use(Loading.directive);
 

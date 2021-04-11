@@ -77,7 +77,6 @@
     display: flex;
 
     .basic-aside {
-
       .brand-logo {
         background-color: @asideBg;
         h1 {
@@ -126,7 +125,9 @@
       }
     }
     .aside-fixed {
+      z-index: 100;
       .pseudo-aside {
+        height: 100%;
         display: block;
       }
       aside {
@@ -184,6 +185,7 @@
 
         header {
           position: fixed;
+          z-index: 10;
           top: 0;
         }
 
