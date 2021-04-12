@@ -2,37 +2,23 @@
   <div class="D3-Demo">
     <el-row>
       <el-col :xl="12" :md="24">
-        <figure class="shadow-light p-1">
-          <base-chart :options="bar" />
-        </figure>
+        <figure class="shadow-light p-1"></figure>
       </el-col>
       <el-col :xl="12" :md="24">
-        <figure class="shadow-light p-1">
-          <base-chart :options="line" />
-        </figure>
+        <figure class="shadow-light p-1"></figure>
       </el-col>
       <el-col :xl="12" :md="24">
-        <figure class="shadow-light p-1">
-          <base-chart :options="pie" />
-        </figure>
+        <figure class="shadow-light p-1"></figure>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
-import BaseChart from "../../../components/chart/BaseChart";
-import pieFn from "./assets/pie";
-import barFn from "./assets/bar";
-import lineFn from "./assets/line";
 export default {
   name: "D3Demo",
-  components: { BaseChart },
+  components: {},
   data() {
-    return {
-      pie: pieFn(),
-      bar: barFn(),
-      line: lineFn(),
-    };
+    return {};
   },
   methods: {},
 };

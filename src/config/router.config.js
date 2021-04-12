@@ -144,6 +144,34 @@ const constantRoutes = [
           icon: "el-icon-picture",
         },
       },
+      {
+        name: "3D",
+        path: "/3d",
+        redirect: "/3d/clay-gl",
+        component: RouteView,
+        meta: {
+          title: "3D",
+          icon: "el-icon-location",
+        },
+        children: [
+          {
+            name: "ClayGlDemo",
+            path: "/3d/clay-gl",
+            component: () => import("@/views/3d/clay-gl/ClayGlDemo"),
+            meta: {
+              title: "ClayGL",
+            },
+          },
+          {
+            name: "ThreeJsDemo",
+            path: "/3d/three-js",
+            component: () => import("@/views/3d/three-js/ThreeJsDemo"),
+            meta: {
+              title: "ThreeJS",
+            },
+          },
+        ],
+      },
     ],
   },
 ];
