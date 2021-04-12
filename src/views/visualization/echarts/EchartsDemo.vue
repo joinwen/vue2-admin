@@ -1,6 +1,6 @@
 <template>
   <div class="Echart-Demo">
-    <div class="flex">
+    <div>
       <el-row>
         <el-col :xl="12" :md="24" :xs="24">
           <figure class="shadow-light p-1">
@@ -29,7 +29,7 @@
         </el-col>
         <el-col :xl="12" :md="24" :xs="24">
           <figure class="shadow-light p-1" style="background-color: #404a59">
-            <base-e-chart :options="bar" autoresize />
+            <base-e-chart :options="map" autoresize />
           </figure>
         </el-col>
       </el-row>
