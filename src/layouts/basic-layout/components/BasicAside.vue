@@ -1,15 +1,11 @@
 <template>
   <div
     :class="[
-      'basic-aside',
+      'basic-aside ease-in-out-0.5',
       sFixed && 'aside-fixed',
       isMobile && (sideBar ? 'aside-mobile' : 'aside-mobile-hidden'),
     ]"
   >
-    <div
-      :class="[isMobile && sideBar && 'mask-mobile']"
-      @click="handleClickMask"
-    ></div>
     <div
       class="pseudo-aside ease-in-out-0.5"
       :class="[sideBar ? 'aside-full' : 'aside-shrink']"
@@ -23,7 +19,7 @@
           class="el-menu-vertical-demo"
           :collapse="collapsed"
           :default-active="$route.path"
-          :unique-opened="false"
+          :unique-opened="true"
         >
           <Menu
             v-for="(item, index) in routes[0].children"
@@ -55,11 +51,7 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    handleClickMask() {
-      this.$store.commit("SET_SIDE_BAR", false);
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang="less" scoped></style>

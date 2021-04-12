@@ -101,7 +101,7 @@
       position: fixed;
       top: 0;
       bottom: 0;
-      z-index: 1;
+      z-index: 10000;
 
       .aside-shrink {
         width: 256px;
@@ -138,16 +138,17 @@
     }
     .mask-mobile {
       position: fixed;
+      z-index: 10000;
       background-color: rgba(0, 0, 0, 0.45);
-      top: 0px;
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
 
     section {
       flex: auto;
-      min-width: 0px;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       .basic-header {

@@ -1,6 +1,10 @@
 <template>
   <div class="basic-layout">
     <section>
+      <div
+        :class="[isMobile && sideBar && 'mask-mobile']"
+        @click="handleClickMask"
+      ></div>
       <basic-aside />
       <section class="bg-info-100">
         <basic-header />
@@ -23,7 +27,7 @@ export default {
   name: "BasicLayout",
   components: { BasicFooter, BasicHeader, BasicAside },
   computed: {
-    ...mapGetters(["sideBar", "routes"]),
+    ...mapGetters(["sideBar", "routes", "isMobile"]),
   },
   data() {
     return {};
@@ -31,6 +35,9 @@ export default {
   methods: {
     handleToggleHamburger(val) {
       this.$store.commit("SET_SIDE_BAR", val);
+    },
+    handleClickMask() {
+      this.$store.commit("SET_SIDE_BAR", false);
     },
   },
 };

@@ -31,6 +31,9 @@ export default {
     handleMenuClick() {
       let path = this.index;
       this.$router.push({ path: path });
+      if (this.$store.getters.isMobile) {
+        this.$store.commit("SET_SIDE_BAR", false);
+      }
     },
   },
 };
