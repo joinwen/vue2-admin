@@ -7,12 +7,17 @@
       :title="data.meta ? data.meta.title : undefined"
     />
     <menu-item
-      v-if="data.children && data.children.length == 1"
+      v-if="data.children && data.children.length == 1 && sideBar"
       :index="data.children[0].path"
       :icon="data.children[0].meta ? data.children[0].meta.icon : undefined"
       :title="data.children[0].meta ? data.children[0].meta.title : undefined"
     />
-    <template v-if="data.children && data.children.length > 1">
+    <template
+      v-if="
+        data.children &&
+        (sideBar ? data.children.length > 1 : data.children.length >= 1)
+      "
+    >
       <el-submenu :index="data.path" :key="data.name">
         <template slot="title">
           <i v-if="data.meta && data.meta.icon" :class="[data.meta.icon]"></i>
@@ -27,6 +32,7 @@
 </template>
 <script>
 import MenuItem from "./MenuItem.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "Menu",
   components: { MenuItem },
@@ -37,6 +43,9 @@ export default {
         return {};
       },
     },
+  },
+  computed: {
+    ...mapGetters(["sideBar"]),
   },
 };
 </script>

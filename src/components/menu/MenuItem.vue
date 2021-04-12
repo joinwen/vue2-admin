@@ -1,9 +1,9 @@
 <template>
   <el-menu-item @click="handleMenuClick" :disabled="disabled" :index="index">
-    <template slot="title">
-      <i v-if="icon" :class="[icon]"></i>
-      <span slot="title">{{ title }}</span>
-    </template>
+    <!--    <template slot="title">-->
+    <i v-if="icon" :class="[icon]"></i>
+    <span slot="title">{{ title }}</span>
+    <!--    </template>-->
   </el-menu-item>
 </template>
 <script>

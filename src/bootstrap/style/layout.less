@@ -61,12 +61,17 @@
   color: @menuColorActive !important;
 }
 
+
 // 父级 菜单 激活色
 .el-submenu.is-active > .el-submenu__title {
   color: @menuColorActive !important;
   i {
     color: @menuColorActive !important;
   }
+}
+
+// 折叠 父级菜单 激活色
+.el-menu--collapse .el-submenu.is-active > .el-submenu__title {
 }
 
 .basic-layout {
