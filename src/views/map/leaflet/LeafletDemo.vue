@@ -14,8 +14,8 @@ export default {
   components: { LMap, LTileLayer },
   data() {
     return {
-      zoom: 13,
-      center: latLng(47.41322, -1.219482),
+      zoom: 3,
+      center: latLng(31.23, 121.47),
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution: '&copy; <a href="http://osm.org/copyright">flywen.top</a>',
       mapOptions: {
