@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d216db7"],{c3f7:function(n,e,t){"use strict";t.r(e);var s=function(){var n=this,e=n.$createElement;n._self._c;return n._m(0)},c=[function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",{staticClass:"sys-permission"},[t("h2",[n._v("权限管理")])])}],r={name:"SysPermission",data:function(){return{}}},i=r,a=t("2877"),u=Object(a["a"])(i,s,c,!1,null,"33f24cc4",null);e["default"]=u.exports}}]);
-//# sourceMappingURL=chunk-2d216db7.54b98acd.js.map
+//# sourceMappingURL=chunk-2d216db7.54255188.js.map

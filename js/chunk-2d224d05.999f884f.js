@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d224d05"],{e279:function(e,n,t){"use strict";t.r(n);var s=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},c=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"sys-role"},[t("h2",[e._v("角色管理")])])}],r={name:"SysRole",data:function(){return{}}},a=r,u=t("2877"),l=Object(u["a"])(a,s,c,!1,null,"6cd380e7",null);n["default"]=l.exports}}]);
-//# sourceMappingURL=chunk-2d224d05.999f884f.js.map
