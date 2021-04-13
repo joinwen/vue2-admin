@@ -31,12 +31,12 @@ export default {
           });
 
           app.createAmbientCubemapLight(
-            "http://upload.flywen.top/bg2_1k.hdr",
+            "https://upload.flywen.top/bg2_1k.hdr",
             1,
             1
           );
 
-          return app.loadModel("http://upload.flywen.top/scene.gltf").then(
+          return app.loadModel("https://upload.flywen.top/scene.gltf").then(
             ((result) => {
               this._logoRoot = result.rootNode;
               result.materials.forEach((material) => {

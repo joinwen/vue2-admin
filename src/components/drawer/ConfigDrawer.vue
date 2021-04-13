@@ -45,6 +45,7 @@
           <h3 class="fs-md fw-normal color-gray-800 m-b-1">主题色</h3>
           <el-color-picker
             :value="themeColor"
+            :predefine="predefineColors"
             @change="handleThemeColorChange"
           />
         </div>
@@ -84,6 +85,12 @@
 </template>
 <script>
 import Color from "color";
+import {
+  getCSSString,
+  updateStyle,
+  getThemeCluster,
+} from "../../tools/chalkUtil";
+import { ORIGINAL_THEME } from "../../config/global.config";
 import { mapGetters } from "vuex";
 import less from "less";
 export default {
@@ -108,6 +115,17 @@ export default {
   data() {
     return {
       theDrawer: false,
+      chalk: undefined,
+      predefineColors: [
+        "#409EFF",
+        "#1890ff",
+        "#304156",
+        "#212121",
+        "#11a983",
+        "#13c2c2",
+        "#6959CD",
+        "#f5222d",
+      ],
     };
   },
   methods: {
@@ -117,7 +135,14 @@ export default {
     handleHeaderFixedChange(value) {
       this.$store.commit("SET_T_FIXED", value);
     },
-    handleThemeColorChange(value) {
+    async handleThemeColorChange(value) {
+      const loading = this.$loading({
+        lock: true,
+        text: "主题编译中",
+        spinner: "el-icon-loading",
+        background: "rgba(0,0,0,0.7)",
+      });
+      await this.handleElementColorChange(value);
       let asideBg,
         menuBg,
         subMenuBg,
@@ -150,6 +175,7 @@ export default {
           "@menuColor": menuColor,
         })
         .then(() => {
+          loading.close();
           this.$store.commit("SET_THEME_COLOR", value);
         });
     },
@@ -188,6 +214,56 @@ export default {
         .then(() => {
           this.$store.commit("SET_THEME_TYPE", value);
         });
+    },
+    async handleElementColorChange(value) {
+      const oldVal = this.chalk ? this.themeColor : ORIGINAL_THEME;
+      if (typeof value !== "string") return;
+      const themeCluster = getThemeCluster(value.replace("#", ""));
+      const originalCluster = getThemeCluster(oldVal.replace("#", ""));
+
+      const getHandler = (variable, id) => {
+        return () => {
+          const originalCluster = getThemeCluster(
+            ORIGINAL_THEME.replace("#", "")
+          );
+          const newStyle = updateStyle(
+            this[variable],
+            originalCluster,
+            themeCluster
+          );
+          let styleTag = document.getElementById(id);
+          if (!styleTag) {
+            styleTag = document.createElement("style");
+            styleTag.setAttribute("id", id);
+            document.head.appendChild(styleTag);
+          }
+          styleTag.innerText = newStyle;
+        };
+      };
+      // 如果没有chalk就是第一次换颜色，需要远程获取css文件
+      // 后面的换色，就不用再次远程获取了
+      if (!this.chalk) {
+        let result = await getCSSString();
+        this.chalk = result;
+      }
+      const chalkHandler = getHandler("chalk", "chalk-style");
+      chalkHandler();
+
+      // 过滤当前整个页面的样式文件，找到含有oldVal颜色的样式文件
+      const styles = [].slice
+        .call(document.querySelectorAll("style"))
+        .filter((style) => {
+          const text = style.innerText;
+          return (
+            new RegExp(oldVal, "i").test(text) && !/Chalk Variables/.test(text)
+          );
+        });
+      // 然后，将其中oldVal的颜色，全部换成我们颜色选择器中选择的新的颜色
+      styles.forEach((style) => {
+        const { innerText } = style;
+        if (typeof innerText !== "string") return;
+        style.innerText = updateStyle(innerText, originalCluster, themeCluster);
+      });
     },
   },
 };
