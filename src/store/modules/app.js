@@ -4,6 +4,8 @@ const app = {
     isMobile: false, // 移动端
     sFixed: false, // sideBar fixed
     tFixed: false, // top fixed
+    themeType: "dark", // 主题：dark: 暗色模式，light: 亮色模式
+    themeColor: "#67c23a", // 主题色
     size: "",
   },
   actions: {},
@@ -29,6 +31,12 @@ const app = {
     },
     SET_T_FIXED(state, value) {
       state.tFixed = value;
+    },
+    SET_THEME_TYPE(state, value) {
+      state.themeType = value;
+    },
+    SET_THEME_COLOR(state, value) {
+      state.themeColor = value;
     },
   },
 };

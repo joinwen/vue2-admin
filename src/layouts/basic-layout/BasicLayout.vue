@@ -16,16 +16,18 @@
         </footer>
       </section>
     </section>
+    <config-drawer />
   </div>
 </template>
 <script>
 import BasicAside from "./components/BasicAside";
 import BasicHeader from "./components/BasicHeader";
 import BasicFooter from "./components/BasicFooter";
+import ConfigDrawer from "@/components/drawer/ConfigDrawer";
 import { mapGetters } from "vuex";
 export default {
   name: "BasicLayout",
-  components: { BasicFooter, BasicHeader, BasicAside },
+  components: { ConfigDrawer, BasicFooter, BasicHeader, BasicAside },
   computed: {
     ...mapGetters(["sideBar", "routes", "isMobile"]),
   },

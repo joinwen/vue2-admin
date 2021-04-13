@@ -75,12 +75,14 @@ import {
   Backtop,
   PageHeader,
   CascaderPanel,
+  Drawer,
   InfiniteScroll,
   Loading,
   MessageBox,
   Message,
   Notification,
 } from "element-ui";
+Vue.use(Drawer);
 Vue.use(Avatar);
 Vue.use(Scrollbar);
 Vue.use(Pagination);
