@@ -1,6 +1,6 @@
 <template>
   <div class="sys-user">
-    <h2>用户管理</h2>
+    <bread-crumb />
     <el-button @click="() => (visible = !visible)">Trigger</el-button>
     <div class="leading-loose">
       <p>
@@ -31,8 +31,10 @@
   </div>
 </template>
 <script>
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
 export default {
   name: "SysUser",
+  components: { BreadCrumb },
   data() {
     return {
       visible: false,

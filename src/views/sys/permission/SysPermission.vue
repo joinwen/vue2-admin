@@ -1,11 +1,14 @@
 <template>
   <div class="sys-permission">
-    <h2>权限管理</h2>
+    <bread-crumb />
   </div>
 </template>
 <script>
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
 export default {
   name: "SysPermission",
+  components: { BreadCrumb },
+  comments: {},
   data() {
     return {};
   },

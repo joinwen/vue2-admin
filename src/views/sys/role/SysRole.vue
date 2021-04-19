@@ -1,6 +1,6 @@
 <template>
   <div class="sys-role">
-    <h2>角色管理</h2>
+    <bread-crumb />
     <el-dialog
       :visible="visible"
       width="50%"
@@ -11,8 +11,10 @@
   </div>
 </template>
 <script>
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
 export default {
   name: "SysRole",
+  components: { BreadCrumb },
   data() {
     return {
       visible: true,

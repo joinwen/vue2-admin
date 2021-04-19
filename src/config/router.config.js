@@ -5,12 +5,57 @@ const constantRoutes = [
   {
     path: "/",
     name: "Root",
-    redirect: "/sys",
+    redirect: "/home",
     component: BasicLayout,
     meta: {
       title: "主页",
     },
     children: [
+      {
+        name: "Home",
+        path: "/home",
+        component: () => import("@/views/home/Home"),
+        meta: {
+          title: "首页",
+          icon: "el-icon-s-home",
+        },
+      },
+      {
+        name: "CSS",
+        path: "/css",
+        component: RouteView,
+        redirect: "/css/layout",
+        meta: {
+          title: "CSS",
+          icon: "el-icon-postcard",
+        },
+        children: [
+          {
+            name: "CssLayout",
+            path: "/css/layout",
+            component: () => import("@/views/css/layout/Layout"),
+            meta: {
+              title: "布局",
+            },
+          },
+          {
+            name: "TextGraphic",
+            path: "/css/text-graphic",
+            component: () => import("@/views/css/text-graphic/TextGraphic"),
+            meta: {
+              title: "图文混排",
+            },
+          },
+          {
+            name: "Other",
+            path: "/css/other",
+            component: () => import("@/views/css/other/Other"),
+            meta: {
+              title: "其他",
+            },
+          },
+        ],
+      },
       {
         path: "/sys",
         name: "Sys",
