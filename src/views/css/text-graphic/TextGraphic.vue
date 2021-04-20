@@ -351,6 +351,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+figure {
+  margin: 0.2em;
+}
 .float-1 {
   img {
     width: 200px;
