@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import BasicAside from "./components/BasicAside";
+import BasicAside from "./components/basic-aside/BasicAside";
 import BasicHeader from "./components/BasicHeader";
 import BasicFooter from "./components/BasicFooter";
 import ConfigDrawer from "@/components/drawer/ConfigDrawer";

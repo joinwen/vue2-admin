@@ -29,15 +29,17 @@
         </el-menu>
       </el-scrollbar>
     </aside>
+    <BasicAsideMobile />
   </div>
 </template>
 <script>
-import BrandLogo from "../../../components/logo/BrandLogo";
+import BrandLogo from "../../../../components/logo/BrandLogo";
 import Menu from "@/components/menu/Menu";
 import { mapGetters } from "vuex";
+import BasicAsideMobile from "@/layouts/basic-layout/components/basic-aside/basic-aside-mobile/BasicAsideMobile";
 export default {
   name: "BasicAside",
-  components: { BrandLogo, Menu },
+  components: { BasicAsideMobile, BrandLogo, Menu },
   computed: {
     ...mapGetters(["sideBar", "routes", "isMobile", "sFixed"]),
     collapsed() {
