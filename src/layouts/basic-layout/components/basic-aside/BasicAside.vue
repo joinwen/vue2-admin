@@ -1,54 +1,18 @@
 <template>
-  <div
-    :class="[
-      'basic-aside ease-in-out-0.5',
-      sFixed && 'aside-fixed',
-      isMobile && (sideBar ? 'aside-mobile' : 'aside-mobile-hidden'),
-    ]"
-  >
-    <div
-      class="pseudo-aside ease-in-out-0.5"
-      :class="[sideBar ? 'aside-full' : 'aside-shrink']"
-    ></div>
-    <aside
-      :class="['ease-in-out-0.5', sideBar ? 'aside-full' : 'aside-shrink']"
-    >
-      <brand-logo />
-      <el-scrollbar border-none x-hidden style="height: calc(100% - 64px)">
-        <el-menu
-          class="el-menu-vertical-demo"
-          :collapse="collapsed"
-          :default-active="$route.path"
-          :unique-opened="true"
-        >
-          <Menu
-            v-for="(item, index) in routes[0].children"
-            :key="index"
-            :data="item"
-          />
-        </el-menu>
-      </el-scrollbar>
-    </aside>
-    <BasicAsideMobile />
-  </div>
+  <aside class="Basic-Aside-Comp">
+    <BasicAsideMobile v-if="isMobile" />
+    <BasicAsidePc v-else />
+  </aside>
 </template>
 <script>
-import BrandLogo from "../../../../components/logo/BrandLogo";
-import Menu from "@/components/menu/Menu";
 import { mapGetters } from "vuex";
 import BasicAsideMobile from "@/layouts/basic-layout/components/basic-aside/basic-aside-mobile/BasicAsideMobile";
+import BasicAsidePc from "@/layouts/basic-layout/components/basic-aside/basic-aside-pc/BasicAsidePc";
 export default {
   name: "BasicAside",
-  components: { BasicAsideMobile, BrandLogo, Menu },
+  components: { BasicAsidePc, BasicAsideMobile },
   computed: {
-    ...mapGetters(["sideBar", "routes", "isMobile", "sFixed"]),
-    collapsed() {
-      if (this.isMobile) {
-        return false;
-      } else {
-        return !this.sideBar;
-      }
-    },
+    ...mapGetters(["isMobile"]),
   },
   data() {
     return {};

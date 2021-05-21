@@ -1,33 +1,24 @@
 <template>
-  <div class="basic-layout">
-    <section>
-      <div
-        :class="[isMobile && sideBar && 'mask-mobile']"
-        @click="handleClickMask"
-      ></div>
-      <basic-aside />
-      <section class="bg-info-100">
-        <basic-header />
-        <main class="m-1 p-1 rounded-4 bg-white">
-          <router-view />
-        </main>
-        <footer>
-          <basic-footer />
-        </footer>
-      </section>
+  <section class="Basic-Layout-Comp">
+    <basic-aside />
+    <section class="basic-layout-section">
+      <basic-header />
+      <basic-main />
+      <basic-footer />
     </section>
     <config-drawer />
-  </div>
+  </section>
 </template>
 <script>
 import BasicAside from "./components/basic-aside/BasicAside";
-import BasicHeader from "./components/BasicHeader";
-import BasicFooter from "./components/BasicFooter";
+import BasicHeader from "./components/basic-header/BasicHeader";
+import BasicFooter from "./components/basic-footer/BasicFooter";
 import ConfigDrawer from "@/components/drawer/ConfigDrawer";
 import { mapGetters } from "vuex";
+import BasicMain from "@/layouts/basic-layout/components/basic-main/BasicMain";
 export default {
   name: "BasicLayout",
-  components: { ConfigDrawer, BasicFooter, BasicHeader, BasicAside },
+  components: { BasicMain, ConfigDrawer, BasicFooter, BasicHeader, BasicAside },
   computed: {
     ...mapGetters(["sideBar", "routes", "isMobile"]),
   },
