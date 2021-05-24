@@ -7,8 +7,8 @@
         'basic-aside-pc-shrink': !sideBar,
       }"
     >
-      <aside class="basic-aside-pc-pseudo"></aside>
-      <aside class="basic-aside-pc-real">
+      <aside class="basic-aside-pc-pseudo ease-0.5"></aside>
+      <aside class="basic-aside-pc-real ease-0.5">
         <brand-logo />
         <el-scrollbar border-none x-hidden style="height: calc(100% - 64px)">
           <el-menu

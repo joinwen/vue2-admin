@@ -1,6 +1,6 @@
 <template>
   <section class="Basic-Layout-Comp">
-    <basic-aside />
+    <basic-aside v-if="menuDirection === 'left'" />
     <section class="basic-layout-section">
       <basic-header />
       <basic-main />
@@ -20,7 +20,7 @@ export default {
   name: "BasicLayout",
   components: { BasicMain, ConfigDrawer, BasicFooter, BasicHeader, BasicAside },
   computed: {
-    ...mapGetters(["sideBar", "routes", "isMobile"]),
+    ...mapGetters(["sideBar", "routes", "isMobile", "menuDirection"]),
   },
   data() {
     return {};

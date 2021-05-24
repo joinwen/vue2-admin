@@ -5,6 +5,7 @@ const isMobile = (state) => state.app.isMobile;
 const routes = (state) => state.router.routes;
 const tFixed = (state) => state.app.tFixed;
 const sFixed = (state) => state.app.sFixed;
+const menuDirection = (state) => state.app.menuDirection;
 const themeColor = (state) => state.app.themeColor;
 const themeType = (state) => state.app.themeType;
 export default {
@@ -15,6 +16,7 @@ export default {
   isMobile,
   tFixed,
   sFixed,
+  menuDirection,
   themeColor,
   themeType,
 };

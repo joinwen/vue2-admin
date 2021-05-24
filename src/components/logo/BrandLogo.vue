@@ -2,7 +2,7 @@
   <div class="brand-logo">
     <a href="">
       <img :src="require('@/assets/images/layout/basic/logo.png')" alt="" />
-      <h1 v-if="sideBar">Vue 2 Admin</h1>
+      <h1 class="fs-lg" v-if="sideBar">Vue 2 Admin</h1>
     </a>
   </div>
 </template>
@@ -14,13 +14,10 @@ export default {
   computed: {
     ...mapGetters(["sideBar"]),
   },
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 <style lang="less" scoped>
+@import "../../bootstrap/style/theme/variables/_theme-variables.less";
 .brand-logo {
   height: 64px;
   display: flex;
@@ -32,15 +29,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: @menuColorActive;
   }
 
   img {
-    height: 32px;
+    height: @headerHeight / 2;
     margin-right: 0.5rem;
-  }
-  h1 {
-    font-size: 20px;
-    margin: 0px 0px 0px 0.5rem;
   }
 }
 </style>

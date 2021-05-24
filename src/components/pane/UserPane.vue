@@ -1,12 +1,14 @@
 <template>
   <div class="user-pane">
-    <el-dropdown>
+    <el-dropdown trigger="click">
       <div class="user-pane-item p-x-1">
         <el-image
           :src="avatar"
           class="m-r-0.5 w-2 rounded-circle shadow-light"
         ></el-image>
-        <span class="color-gray-600 fs-md leading-normal">{{ nickname }}</span>
+        <span class="fs-md leading-normal" style="white-space: nowrap">{{
+          nickname
+        }}</span>
       </div>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item icon="el-icon-user-solid">用户中心</el-dropdown-item>

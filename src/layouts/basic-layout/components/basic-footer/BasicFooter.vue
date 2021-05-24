@@ -1,6 +1,6 @@
 <template>
   <div class="Basic-Footer-Comp">
-    <p>Copyright &copy; 2021 flywen.top</p>
+    <p class="fs-base color-gray-600">Copyright &copy; 2021 flywen.top</p>
   </div>
 </template>
 <script>
@@ -13,4 +13,8 @@ export default {
   methods: {},
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.Basic-Footer-Comp {
+  text-align: center;
+}
+</style>
