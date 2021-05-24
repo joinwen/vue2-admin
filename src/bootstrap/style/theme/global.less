@@ -5,7 +5,12 @@ body,
 #app, #root {
   height: 100%;
 }
-
+.body-night {
+  filter: invert(100) hue-rotate(365deg);
+  img {
+    filter: invert(100) hue-rotate(365deg);
+  }
+}
 html {
   font-size: @html-font-size;
   overflow-y: scroll;

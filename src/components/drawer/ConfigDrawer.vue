@@ -42,6 +42,51 @@
         </div>
         <el-divider />
         <div class="m-b-3">
+          <h3 class="fs-md fw-normal m-b-1 color-gray-800">导航模式</h3>
+          <div>
+            <span class="m-l-0.5 inline-block position-rl">
+              <el-tooltip placement="top-start" content="侧边导航">
+                <img
+                  @click="handleMenuDirectionChange('left')"
+                  cursor="pointer"
+                  src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
+                  alt="dark"
+                />
+              </el-tooltip>
+              <i
+                v-if="menuDirection == 'left'"
+                class="el-icon-check checked-icon no-event"
+              ></i>
+            </span>
+            <span class="m-l-0.5 inline-block position-rl">
+              <el-tooltip placement="top-start" content="顶部导航">
+                <img
+                  @click="handleMenuDirectionChange('top')"
+                  cursor="pointer"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg"
+                  alt="dark"
+                />
+              </el-tooltip>
+              <i
+                v-if="menuDirection == 'top'"
+                class="el-icon-check checked-icon no-event"
+              ></i>
+            </span>
+          </div>
+        </div>
+        <el-divider />
+        <div class="m-b-3">
+          <h3 class="fs-md fw-normal m-b-1 color-gray-800">视觉模式</h3>
+          <span class="clearfix block m-b-1">
+            <span class="float-l">夜间模式</span>
+            <el-switch
+              :value="night"
+              class="float-r"
+              @change="handleVisionChange"
+            ></el-switch>
+          </span>
+        </div>
+        <div class="m-b-3">
           <h3 class="fs-md fw-normal color-gray-800 m-b-1">主题色</h3>
           <el-color-picker
             :value="themeColor"
@@ -110,7 +155,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["sFixed", "tFixed", "themeColor", "themeType"]),
+    ...mapGetters([
+      "sFixed",
+      "tFixed",
+      "themeColor",
+      "themeType",
+      "menuDirection",
+      "night",
+    ]),
   },
   data() {
     return {
@@ -134,6 +186,19 @@ export default {
     },
     handleHeaderFixedChange(value) {
       this.$store.commit("SET_T_FIXED", value);
+    },
+    handleMenuDirectionChange(value) {
+      this.$store.commit("SET_MENU_DIRECTION", value);
+    },
+    handleVisionChange() {
+      let night = this.$store.getters.night;
+      this.$store.commit("SET_NIGHT", !night);
+      if (!night) {
+        this.handleThemeTypeChange("light");
+        window.document.body.classList.add("body-night");
+      } else {
+        window.document.body.classList.remove("body-night");
+      }
     },
     async handleThemeColorChange(value) {
       const loading = this.$loading({

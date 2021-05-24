@@ -8,6 +8,7 @@ const sFixed = (state) => state.app.sFixed;
 const menuDirection = (state) => state.app.menuDirection;
 const themeColor = (state) => state.app.themeColor;
 const themeType = (state) => state.app.themeType;
+const night = (state) => state.app.night;
 export default {
   avatar,
   nickname,
@@ -19,4 +20,5 @@ export default {
   menuDirection,
   themeColor,
   themeType,
+  night,
 };

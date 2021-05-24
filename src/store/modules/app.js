@@ -4,8 +4,9 @@ const app = {
     isMobile: false, // 移动端
     sFixed: false, // sideBar fixed
     tFixed: false, // top fixed
-    menuDirection: "top", // 菜单栏位置,top/left
+    menuDirection: "left", // 菜单栏位置,top/left
     themeType: "dark", // 主题：dark: 暗色模式，light: 亮色模式
+    night: false, // 夜间模式
     themeColor: "#67c23a", // 主题色
     size: "",
   },
@@ -20,15 +21,13 @@ const app = {
     SET_IS_MOBILE(state, value) {
       state.isMobile = value;
     },
+    SET_NIGHT(state, value) {
+      state.night = value;
+    },
     SET_SIZE(state, value) {
       state.size = value;
-      if (value == "xs") {
-        state.isMobile = true;
-        state.sideBar = false;
-      } else {
-        state.isMobile = false;
-        state.sideBar = true;
-      }
+      state.isMobile = value === "xs";
+      state.sideBar = !state.isMobile;
     },
     SET_S_FIXED(state, value) {
       state.sFixed = value;

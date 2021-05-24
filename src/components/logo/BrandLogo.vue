@@ -16,25 +16,4 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped>
-@import "../../bootstrap/style/theme/variables/_theme-variables.less";
-.brand-logo {
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: @menuColorActive;
-  }
-
-  img {
-    height: @headerHeight / 2;
-    margin-right: 0.5rem;
-  }
-}
-</style>
+<style lang="less" scoped></style>

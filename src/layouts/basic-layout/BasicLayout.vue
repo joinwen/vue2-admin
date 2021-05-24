@@ -1,5 +1,8 @@
 <template>
-  <section class="Basic-Layout-Comp">
+  <section
+    class="Basic-Layout-Comp"
+    :class="{ 'Basic-Layout-Night-Comp': night }"
+  >
     <basic-aside v-if="menuDirection === 'left'" />
     <section class="basic-layout-section">
       <basic-header />
@@ -20,7 +23,7 @@ export default {
   name: "BasicLayout",
   components: { BasicMain, ConfigDrawer, BasicFooter, BasicHeader, BasicAside },
   computed: {
-    ...mapGetters(["sideBar", "routes", "isMobile", "menuDirection"]),
+    ...mapGetters(["sideBar", "routes", "isMobile", "menuDirection", "night"]),
   },
   data() {
     return {};
