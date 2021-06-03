@@ -57,37 +57,37 @@ const constantRoutes = [
         ],
       },
       {
-        path: "/sys",
-        name: "Sys",
+        path: "/form",
+        name: "Form",
         component: RouteView,
-        redirect: "/sys/user",
+        redirect: "/form/basic",
         meta: {
-          title: "系统管理",
+          title: "表单",
           icon: "el-icon-setting",
         },
         children: [
           {
-            path: "/sys/user",
-            name: "SysUser",
-            component: () => import("@/views/sys/user/SysUser"),
+            path: "/form/advanced",
+            name: "AdvancedForm",
+            component: () => import("@/views/form/advanced-form/AdvancedForm"),
             meta: {
-              title: "用户管理",
+              title: "高级表单",
             },
           },
           {
-            path: "/sys/role",
-            name: "SysRole",
-            component: () => import("@/views/sys/role/SysRole"),
+            path: "/form/step",
+            name: "StepForm",
+            component: () => import("@/views/form/step-form/StepForm"),
             meta: {
-              title: "角色管理",
+              title: "分步表单",
             },
           },
           {
-            path: "/sys/permission",
-            name: "SysPermission",
-            component: () => import("@/views/sys/permission/SysPermission"),
+            path: "/form/basic",
+            name: "BasicForm",
+            component: () => import("@/views/form/basic-form/BasicForm"),
             meta: {
-              title: "权限管理",
+              title: "基础表单",
             },
           },
         ],
@@ -98,7 +98,7 @@ const constantRoutes = [
         component: RouteView,
         redirect: "/table/condition",
         meta: {
-          title: "表单",
+          title: "表格",
           icon: "el-icon-s-order",
         },
         children: [
@@ -108,7 +108,7 @@ const constantRoutes = [
             component: () =>
               import("@/views/table/table-condition/TableCondition"),
             meta: {
-              title: "条件表单",
+              title: "条件表格",
               icon: "el-icon-setting",
             },
           },
@@ -117,7 +117,7 @@ const constantRoutes = [
             name: "TableList",
             component: () => import("@/views/table/table-list/TableList"),
             meta: {
-              title: "表格列表",
+              title: "高级表格",
               icon: "el-icon-setting",
             },
           },

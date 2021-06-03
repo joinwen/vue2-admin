@@ -1,23 +1,16 @@
 <template>
-  <div class="sys-role">
+  <div class="Advanced-Form">
     <bread-crumb />
-    <el-dialog
-      :visible="visible"
-      width="50%"
-      title="弹出"
-      @close="visible = !visible"
-    >
-    </el-dialog>
   </div>
 </template>
 <script>
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
 export default {
-  name: "SysRole",
+  name: "AdvancedForm",
   components: { BreadCrumb },
   data() {
     return {
-      visible: true,
+      visible: false,
     };
   },
 };
