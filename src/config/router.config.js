@@ -67,11 +67,11 @@ const constantRoutes = [
         },
         children: [
           {
-            path: "/form/advanced",
-            name: "AdvancedForm",
-            component: () => import("@/views/form/advanced-form/AdvancedForm"),
+            path: "/form/basic",
+            name: "BasicForm",
+            component: () => import("@/views/form/basic-form/BasicForm"),
             meta: {
-              title: "高级表单",
+              title: "基础表单",
             },
           },
           {
@@ -83,11 +83,11 @@ const constantRoutes = [
             },
           },
           {
-            path: "/form/basic",
-            name: "BasicForm",
-            component: () => import("@/views/form/basic-form/BasicForm"),
+            path: "/form/advanced",
+            name: "AdvancedForm",
+            component: () => import("@/views/form/advanced-form/AdvancedForm"),
             meta: {
-              title: "基础表单",
+              title: "高级表单",
             },
           },
         ],
