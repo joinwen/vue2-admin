@@ -1,5 +1,8 @@
 # vue2-admin
 
+## Preview
+[http://joinwen.github.io/vue2-admin]
+
 ## Project setup
 ```
 npm install
