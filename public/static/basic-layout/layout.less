@@ -1,0 +1,257 @@
+@import "../variables/theme-variables";
+@import "./side/side-mobile/side-mobile";
+@import "./side/side-pc/side-pc";
+// el-menu 防卡
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 256px;
+  height: calc(100% - @headerHeight);
+}
+
+.el-menu-vertical-demo,
+.el-menu-horizontal-demo
+{
+  // el-menu 折叠隐藏文字和^箭头
+  &.el-menu--collapse {
+    .Menu {
+      .el-submenu__icon-arrow,
+      .el-submenu__title span {
+        display: none !important;
+      }
+    }
+  }
+
+  // 二级、三级等菜单背景色 和 hover: 背景色, color色, icon色
+  .el-menu-item {
+    background-color: @subMenuBg !important;
+    color: @menuColor !important;
+    &:hover {
+      color: @menuColorActive !important;
+      background-color: @subMenuBg !important;
+      i {
+        color: @menuColorActive !important;
+      }
+    }
+  }
+
+  // 二级、三级等菜单背景色 和 hover: 背景色, color色, icon色
+  .el-submenu__title {
+    background-color: @subMenuBg !important;
+    color: @menuColor !important;
+    &:hover {
+      color: @menuColorActive !important;
+      background-color: @subMenuBg !important;
+      i {
+        color: @menuColorActive !important;
+      }
+    }
+  }
+
+  // 一级菜单背景色 和 hover: 背景色, color色, icon色
+  .el-scrollbar__view {
+    .el-menu {
+      .el-submenu {
+        .el-submenu__title {
+          background-color: @subMenuBg !important;
+          &:hover {
+            background-color: @subMenuBg !important;
+          }
+        }
+      }
+    }
+  }
+
+  // 菜单激活色
+  .el-menu-item.is-active {
+    background-color: @subMenuBgActive !important;
+    color: @menuColorActive !important;
+  }
+
+  // 父级 菜单 激活色
+  .el-submenu.is-active > .el-submenu__title {
+    color: @menuColorActive !important;
+    i {
+      color: @menuColorActive !important;
+    }
+  }
+
+  // 折叠 父级菜单 激活色
+  .el-menu--collapse .el-submenu.is-active > .el-submenu__title {
+  }
+}
+
+
+.el-menu-horizontal-demo {
+  display: flex;
+  flex: 1 1 auto;
+  background-color: @asideBg !important;
+  border-bottom: none !important;
+  .el-submenu__icon-arrow {
+    position: static;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-top: -3px;
+  }
+  .el-menu-item {
+    height: @headerHeight;
+    line-height: @headerHeight;
+  }
+  .el-submenu__title {
+    height: @headerHeight;
+    line-height: @headerHeight;
+  }
+  .el-tooltip {
+    position: static !important;
+    padding: 0 !important;
+  }
+}
+
+.checked-icon {
+  color: @subMenuBgActive;
+}
+
+.Basic-Layout-Comp {
+  display: flex;
+  min-height: 100%;
+  background-color: @layoutBg;
+
+  .Basic-Aside-Comp {
+    .Basic-Aside-Pc-Comp {
+      height: 100%;
+      .basic-aside-pc-static {
+        height: 100%;
+        .basic-aside-pc-pseudo {
+        }
+        .basic-aside-pc-real {
+          height: 100%;
+          width: @sideWidth;
+          background-color: @asideBg;
+        }
+      }
+      .basic-aside-pc-fixed {
+        .basic-aside-pc-pseudo {
+          width: @sideWidth;
+          height: 100%;
+        }
+        .basic-aside-pc-real {
+          position: fixed;
+          left: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+      .basic-aside-pc-shrink {
+        .basic-aside-pc-real {
+          width: @sideWidthShrink;
+        }
+        .basic-aside-pc-pseudo {
+          width: @sideWidthShrink;
+        }
+      }
+    }
+    .Basic-Aside-Mobile {
+      .el-drawer__body {
+        background-color: @asideBg;
+      }
+    }
+  }
+  .basic-layout-section {
+    min-height: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    .Basic-Header-Normal-Comp {
+
+      .basic-header-static {
+        display: flex;
+        .basic-header-pseudo {
+          height: @headerHeight;
+          width: 0;
+        }
+        .basic-header-real {
+          padding-right: 2rem;
+          flex: 1 1 auto;
+          background-color: @headerBg;
+        }
+      }
+
+      .basic-header-fixed {
+        .basic-header-pseudo {
+          height: @headerHeight;
+        }
+        .basic-header-real {
+          position: fixed;
+          z-index: 2;
+          top: 0;
+          right: 0;
+          left: @sideWidth;
+          height: @headerHeight;
+        }
+      }
+      .basic-header-fixed.basic-header-grow {
+        .basic-header-real {
+          left: @sideWidthShrink;
+        }
+      }
+      .basic-header-fixed.basic-header-mobile {
+        .basic-header-real {
+          left: 0;
+          transition: none !important;
+        }
+      }
+
+    }
+    .Basic-Header-Menu-Comp {
+      .basic-header-menu-static {
+        .basic-header-menu-real {
+          display: flex;
+          padding: 0 2rem;
+          background-color: @asideBg;
+
+          .el-scrollbar {
+            flex: 1 1 auto;
+          }
+          .notice-bell {
+            .el-icon-bell {
+              color: @menuColorActive;
+            }
+            &:hover {
+              background-color: @subMenuBgActive;
+            }
+          }
+          .user-pane {
+            span {
+              color: @menuColorActive;
+            }
+            &:hover {
+              background-color: @subMenuBgActive;
+            }
+          }
+        }
+      }
+      .basic-header-menu-fixed {
+        .basic-header-menu-real {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 2;
+          height: @headerHeight;
+        }
+        .basic-header-menu-pseudo {
+          height: @headerHeight;
+        }
+      }
+    }
+    .Basic-Main-Comp {
+      flex: 1 1 auto;
+      margin: @mainMargin;
+      padding: @mainPadding;
+      background-color: @mainBg;
+    }
+    .Basic-Footer-Comp {
+
+    }
+  }
+}

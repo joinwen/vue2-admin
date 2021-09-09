@@ -1,0 +1,35 @@
+//@import "basic-layout/layout";
+@import "variables/_theme-variables.less";
+html,
+body,
+#app, #root {
+  height: 100%;
+}
+.body-night {
+  filter: invert(100) hue-rotate(365deg);
+  img {
+    filter: invert(100) hue-rotate(365deg);
+  }
+}
+html {
+  font-size: @html-font-size;
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  color: @body-color;
+  font-size: @body-font-size;
+  font-weight: @body-font-weight;
+  font-family: @body-font-family;
+  background-color: @body-bg-color;
+}
